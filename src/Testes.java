@@ -86,10 +86,19 @@ public class Testes {
 			//saveImage("http://www4.trt23.jus.br/portal/arquivo/intranet/img/2018-02/vt_campanha_doacao_de_sangue_mp4_snapshot_00_32_2018_02_22_10_24_48-fit-1600x400.jpg", "aaaa.jpg");
 			//saveImageByUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kitten_in_Rizal_Park%2C_Manila.jpg/1200px-Kitten_in_Rizal_Park%2C_Manila.jpg", "bbbb.jpg");
 			
-			javaxt.io.Image newImage = new javaxt.io.Image("images/1.png");
-        	newImage.setHeight(50); //set width, adjusts height to maintain aspect ratio
-        	//ImageIO.write( newImage.getRenderedImage(), "JPG", new File("images/1a200.jpg"));
-        	ImageIO.write( newImage.getRenderedImage(), "PNG", new File("images/1a50.jpg"));
+			String file = "images/2.png";
+			String fileExt = file.substring(file.length()-3,file.length()).toUpperCase();
+			String fileWExt = file.substring(0, file.length()-4);
+			
+			javaxt.io.Image newImage = new javaxt.io.Image(file);
+			
+			File arq = new File(file);
+			System.out.println(arq.length());
+			//System.out.println(
+        	newImage.resize(40,50); 
+        	
+        	//ImageIO.write( newImage.getRenderedImage(), "JPG", new File("images/2a200.jpg"));
+        	ImageIO.write( newImage.getRenderedImage(), fileExt, new File(fileWExt+"_50."+fileExt));
 //        	newImage.setHeight(50); //set height, adjusts width to maintain aspect ratio
 //        	newImage.resize(75, 150); //set width and height to whatever you want
 			
